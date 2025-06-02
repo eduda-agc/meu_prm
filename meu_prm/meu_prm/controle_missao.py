@@ -80,18 +80,26 @@ class ControleMissao(Node):
     def explorar(self):
         twist = Twist()
 
-        if self.dist_frente < 0.4:
-            twist.angular.z = 0.5
-        elif self.dist_direita > 0.6:
-            twist.linear.x = 0.15
-            twist.angular.z = -0.3
+        # de cara na parede, recuar e girar
+        if self.dist_frente < 0.3:
+            twist.linear.x = -0.1  # recua
+            # Gira para o lado com mais espaço
+            if self.dist_direita > 0.5:
+                twist.angular.z = -0.5  #direita
+            else:
+                twist.angular.z = 0.5   # esquerda
+            self.cmd_vel_pub.publish(twist)
+            return
+
+        # livre, segue reto com correções
+        twist.linear.x = 0.25
+        if self.dist_direita > 0.6:
+            twist.angular.z = -0.2  # se afasta da parede
         elif self.dist_direita < 0.3:
-            twist.linear.x = 0.15
-            twist.angular.z = 0.3
-        else:
-            twist.linear.x = 0.2
+            twist.angular.z = 0.2   # perto demais
 
         self.cmd_vel_pub.publish(twist)
+
 
     def desviar(self):
         self.tempo_desviando += 1
