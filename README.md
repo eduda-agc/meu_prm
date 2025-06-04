@@ -50,7 +50,9 @@ source install/local_setup.bash
 ### Terminal 1 - Iniciar o mundo no Gazebo
 
 ```bash
-source install/local_setup.bash
+cd ~/prm_ws
+colcon build --packages-select prm
+source install/setup.bash
 ros2 launch prm inicia_simulacao.launch.py
 ```
 
@@ -59,35 +61,18 @@ ros2 launch prm inicia_simulacao.launch.py
 Em um **novo terminal** (não se esqueça de `source install/local_setup.bash`):
 
 ```bash
-source install/local_setup.bash
+source install/setup.bash
 ros2 launch prm carrega_robo.launch.py
 ```
 
-### Terminal 3 – Ative os controladores ROS 2 Control
+### Terminal 3 – Inicie a missão!
 
 Em outro terminal:
 
 ```bash
-source install/local_setup.bash
-ros2 control load_controller --set-state active joint_state_broadcaster
-ros2 control load_controller --set-state active diff_drive_base_controller
-
+source install/setup.bash
+ros2 run prm controle_missao
 ```
-
-### Terminal 4 - Inicie a ponte da câmera (image bridge)
-
-
-```bash
-source install/local_setup.bash
-ros2 launch meu_prm bridge_camera.launch.py
-```
-
-### Terminal 5 – Inicie a missão do robô (navegação)
-```bash
-source install/local_setup.bash
-ros2 run meu_prm controle_missao
-```
-
 ### Alternativa: controle manual (teclado)
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
@@ -97,5 +82,10 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```bash
 sudo apt install ros-humble-teleop-twist-keyboard
 ```
+### Ponto de vista do robô
+```bash
+ros2 run rqt_gui rqt_gui
+```
+
 ### Sobre o projeto
 Este pacote implementa um sistema de controle e navegação automática para um robô móvel simulado, com sensores (IMU, LIDAR e câmera RGB) no ambiente do Gazebo. O comportamento principal envolve exploração do ambiente, seguimento de paredes, detecção de uma bandeira e planejamento de rota até ela usando o algoritmo A* (A-estrela).
