@@ -7,6 +7,8 @@ from launch_ros.actions import Node
 
 import os
 
+#modificado para funcionar melhor com a câmera escolhida (o outro não estava rodando)
+
 robot_cam_bridge = Node(
     package="ros_gz_bridge",
     executable="parameter_bridge",
@@ -115,8 +117,9 @@ def generate_launch_description():
     # Inclui as configurações de ambiente, a ponte e o lançamento do Gazebo.
     return LaunchDescription([
         gz_set_env,
-        bridge,         # já existia
-        robot_cam_bridge,  # novo bridge que você acabou de criar
+        bridge,        
+        robot_cam_bridge,  #novo bridge (que funcionou)
         gazebo
     ])
+
 
