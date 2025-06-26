@@ -88,4 +88,23 @@ ros2 run rqt_gui rqt_gui
 ```
 
 ### Sobre o projeto
-Este pacote implementa um sistema de controle e navegação automática para um robô móvel simulado, com sensores (IMU, LIDAR e câmera RGB) no ambiente do Gazebo. O comportamento principal envolve exploração do ambiente, seguimento de paredes, detecção de uma bandeira e planejamento de rota até ela usando o algoritmo A* (A-estrela).
+Este pacote implementa um sistema de controle e navegação automática para um robô móvel simulado, com sensores (IMU, LIDAR e câmera RGB) no ambiente do Gazebo. O comportamento principal envolve exploração do ambiente, seguimento de paredes, desvio de obstáculos e detecção da bandeira pela cor.
+
+________________________________________________________________________________________________________________________________________________________________________________
+
+### Trabalho 2
+No trabalho 2 há uma Atividade Extensionista. Minha proposta final foi fazer um tutorial básido de Ros2 para iniciantes, contendo conceito e testes com turtlesim sobre:
+- Instalação de Ros2
+- Executaveis
+- Topicos
+- Serviços
+- Parametros
+- Ações
+- Workspace
+- Colcon Biuld
+- Create Packages
+- Publisher e Subscribers
+- Launch Files
+Todos em uma página Notion, para ficar mais fácil a cópia e cola, além da custimização. Segue o link: [Tutorial Ros2 Básico](https://www.notion.so/21ecbc4955798044a1bcc2af3a0dcbe4?source=copy_link)
+
+Segue também o relatório da Atividade Extensionista: [Relatório](https://docs.google.com/document/d/1FXz7KUlFhLeUCHKfRZ7RURuUNr3TeapHrsSWpx5PjzQ/edit?usp=sharing)
