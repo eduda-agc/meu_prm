@@ -47,7 +47,8 @@ source install/local_setup.bash
 
 ## 🧪 Executando a simulação
 
-### Terminal 1 - Iniciar o mundo no Gazebo
+### Terminal 1 - Iniciar o mundo no Gazebo 
+#### Trabalho 1
 
 ```bash
 cd ~/prm_ws
@@ -55,9 +56,16 @@ colcon build --packages-select prm
 source install/setup.bash
 ros2 launch prm inicia_simulacao.launch.py
 ```
+#### Trabalho 2
+```bash
+cd ~/prm_ws
+	colcon build --packages-select prm
+	source install/setup.bash
+	ros2 launch prm inicia_simulacao.launch.py world:=empty_arena.sdf
+```
 
 ### Terminal 2 - Carregar o robô no ambiente
-
+#### Trabalho 1 e 2
 Em um **novo terminal** (não se esqueça de `source install/local_setup.bash`):
 
 ```bash
@@ -66,7 +74,7 @@ ros2 launch prm carrega_robo.launch.py
 ```
 
 ### Terminal 3 – Inicie a missão!
-
+#### Trabalho 1 e 2
 Em outro terminal:
 
 ```bash
